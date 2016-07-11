@@ -91,7 +91,7 @@ def file_write(a,outfile):
     f.write(str(a) + "\n")
     f.close()
 
-def slidingWindow(df,l,timestamp,outfile):
+def sliding_time_Window(df,l,timestamp,outfile):
     counter = 0
     idx=0
     # live_nodes would be the node that contains all the transactions as a list of list [[]]
@@ -103,7 +103,7 @@ def slidingWindow(df,l,timestamp,outfile):
         # iterate row by row in the dataframe
         
         if counter ==0:
-            # first tweet in the input file         
+            # first transaction in the input file         
             live_nodes.append(df['actor_target'][counter])
             time1 = set_date(i) # Starting point of 60seconds window
             time2 = set_date(i) # Ending point of 60seconds window
@@ -155,7 +155,7 @@ def main(argv):
 	outfile = argv[2]
 	venmo_data = extract_data(filepath)
 	(clean_df,l,timestamp) = clean_data(venmo_data)
-	slidingWindow(clean_df,l,timestamp,argv[2])
+	sliding_time_Window(clean_df,l,timestamp,argv[2])
 
 
 
