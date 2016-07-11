@@ -118,7 +118,7 @@ def sliding_time_Window(df,l,timestamp,outfile):
         else:
             # from 2nd row onwards
             time2 = set_date(i)   # ending point of the 60 seconds window
-            # are the two tweet timestamps within the 60seconds timeframe
+            # are the two transactions timestamps within the 60seconds timeframe
             if (abs((time2-time1).seconds <=60) or abs((time2-time1).seconds == 86399) ):
                 
                 live_nodes.append(df['actor_target'][counter])
